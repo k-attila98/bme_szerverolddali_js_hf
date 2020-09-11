@@ -11,24 +11,25 @@
 </head>
 <body class="text-center">
 
-<div class="container">
-<form class="form-signin">
-    <img class="mb-4" src="/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputUser" class="sr-only">Username</label>
-    <input type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
-    <label for="inputPassword" class="sr-only">Password</label>
-    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Remember me
-        </label>
+<div class="row">
+    <div class="container col-3">
+    <form class="form-signin" style="padding-top: 100px">
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <label for="inputUser" class="sr-only">Username</label>
+        <input type="text" id="inputUser" class="form-control" placeholder="Username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <a href="dashboard.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Sign in</a>
+        <a href="index.html" class="btn btn-link btn-lg active" role="button" aria-pressed="true">Go back</a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
+    </form>
     </div>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    <a href="dashboard.html" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Sign in</a>
-    <a href="index.html" class="btn btn-link btn-lg active" role="button" aria-pressed="true">Go back</a>
-    <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
-</form>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
