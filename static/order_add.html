@@ -41,52 +41,10 @@
 
     <div class="row">
         <div class="col-md-12 order-md-1">
-            <h4 class="mb-3">Számlázási cím</h4>
             <form class="needs-validation" novalidate>
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="firstName">Keresztnév</label>
-                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Érvényes keresztnév szükséges
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="lastName">Vezetéknév</label>
-                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-                        <div class="invalid-feedback">
-                            Érvényes vezetéknév szükséges.
-                        </div>
-                    </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Kérlek írd be a gyakran használt email címed szállítási infok miatt.
-                    </div>
-                </div>
 
-                <div class="mb-3">
-                    <label for="address">Cím</label>
-                    <input type="text" class="form-control" id="address" placeholder="Írd be a címed irányítószámmal és várossal együtt..." required>
-                    <div class="invalid-feedback">
-                        Kérlek írd be a szállítási címet.
-                    </div>
-                </div>
-
-                <div class="mb-3">
-                    <label for="country">Ország</label>
-                    <input type="text" class="form-control" id="country" placeholder="Írd be az országod..." required>
-                    <div class="invalid-feedback">
-                        Kérlek írd be az országot ahova szállítsunk.
-                    </div>
-                </div>
-
-                <hr class="mb-4">
-
-                <h4 class="mb-3">Autó specifikáció</h4>
+                <h4 class="mb-3">Rendelés módosítása</h4>
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
@@ -130,7 +88,8 @@
 
                 <hr class="mb-4">
 
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Árajánlat kérése</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Változtatások mentése</button>
+                <a class="btn btn-danger btn-lg btn-block" href="user_orders.html">Mégse</a>
             </form>
         </div>
     </div>
