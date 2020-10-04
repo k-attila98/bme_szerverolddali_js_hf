@@ -1,0 +1,113 @@
+szerveroldali js MW tervek
+
+index.html - kezdőlap és linkek
+login.html - login form, link reg és elfelejtett pw
+register.html - reg form
+pw_forgot.html - jelszó elfelejtős form, email alapján küldi el console.logba
+order.html - rendelés form, sima user is látja
+
+dashboard.html - admin felület, csak admin látja
+customer_add.html - user hozzáadó form, csak admin
+customer_edit.html - user szerkesztő form, csak admin
+customer_orders.html - egy user rendeléseit listázó oldal, csak admin
+order_add.html - egy userhez rendelés hozzáadó form, csak admin
+order_edit.html - egy userhez rendelés szerkesztő form, csak admin
+
+bővítés: user is lássa a saját rendeléseit
+
+routing
+
+nyitóoldal
+GET /					-index.html
+	getTopCustomersMW
+	renderMW(index.html)
+
+login
+GET /login?error=wrongpass		-login.html
+	renderMW(login.html)
+POST /login
+	checkLoginMW
+
+regisztrálás
+GET /register				-register.html
+	renderMW(register.html)
+POST /register
+	registerNewUserMW
+	(redirect -> login)
+
+elfelejtett jelszó
+GET /password_forgot			-pw_forgot.html
+	renderMW(pw_forgot.html)
+POST /password_forgot 
+	forgotPasswordMW
+	(redirect -> login)
+
+rendelés feladás
+GET,POST /order				-order.html
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	saveOrderMW
+	
+userek lista
+GET /customer/list			-dashboard.html
+	authMW
+	checkPrivilegeMW
+	getCustomersMW
+	renderMW(dashboard.html)
+
+user hozzáad
+GET,POST /customer/add			-customer_add.html
+	authMW
+	checkPrivilegeMW
+	saveCustomerMW
+	renderMW(customer_add.html)
+
+user törlés	
+GET /customer/del/:userid
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	delCustomerMW
+
+user szerkesztés
+GET,POST /customer/edit/:userid		-customer_edit.html
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	saveCustomerMW
+	renderMW(customer_edit.html)
+
+egy user rendelései lista
+GET /customer/order/:userid		-customer_orders.html
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	getOrdersMW
+	renderMW(customer_orders.html)
+
+rendelés hozzáad
+GET,POST /customer/order/:userid/add		-order_add.html
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	getOrderMW
+	saveOrderMW
+	renderMW(order_add.html)
+
+rendelés törlés
+GET /customer/order/:userid/:orderid/del
+	authMW
+	checkPrivilegeMW
+	getOrderMW
+	delOrderMW
+
+rendelés szerkesztés --> ua mint hozzáad, paraméterrel meg lehet oldani a címet az oldalon
+GET, POST /customer/order/:userid/:orderid/edit	-order_edit.html
+	authMW
+	checkPrivilegeMW
+	getCustomerMW
+	getOrderMW
+	saveOrderMW
+	renderMW(order_edit.html)
+
