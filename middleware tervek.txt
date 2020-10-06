@@ -17,6 +17,31 @@ bővítés: user is lássa a saját rendeléseit
 
 routing
 
+
+/common
+renderMW.js
+
+/auth
+checkLoginMW.js
+handleWrongLoginMW.js
+registerNewUserMW.js
+forgotPasswordMW.js
+authMW.js
+checkPrivilegeMW.js
+
+/customer
+getTopCustomersMW
+getCustomersMW.js
+getCustomerMW.js
+saveCustomerMW.js
+delCustomerMW.js
+
+/order
+getOrdersMW.js
+getOrderMW.js
+saveOrderMW.js
+delOrderMW.js
+
 nyitóoldal
 GET /					-index.html
 	getTopCustomersMW
@@ -27,6 +52,7 @@ GET /login?error=wrongpass		-login.html
 	renderMW(login.html)
 POST /login
 	checkLoginMW
+	handleWrongLoginMW
 
 regisztrálás
 GET /register				-register.html
