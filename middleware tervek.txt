@@ -30,7 +30,7 @@ authMW.js
 checkPrivilegeMW.js
 
 /customer
-getTopCustomersMW
+getTopCustomersMW.js
 getCustomersMW.js
 getCustomerMW.js
 saveCustomerMW.js
@@ -40,7 +40,7 @@ delCustomerMW.js
 getOrdersMW.js
 getOrderMW.js
 saveOrderMW.js
-delOrderMW.js
+
 
 nyitóoldal
 GET /					-index.html
@@ -62,8 +62,8 @@ POST /register
 	(redirect -> login)
 
 elfelejtett jelszó
-GET /password_forgot			-pw_forgot.html
-	renderMW(pw_forgot.html)
+GET /password_forgot			-lost_password.html
+	renderMW(lost_password.html)
 POST /password_forgot 
 	forgotPasswordMW
 	(redirect -> login)
