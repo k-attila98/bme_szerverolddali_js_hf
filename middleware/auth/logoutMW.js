@@ -1,5 +1,5 @@
 /*
-checks the privilege level of the logged in user, and sets the correct param in session
+log the current user out, terminate session, redirect to /
  */
 
 const requireOption = require('../common/requireOption');
