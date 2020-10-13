@@ -29,7 +29,8 @@ module.exports = function (app) {
         renderMW(objRepo, 'login'));
     app.post('/login',
         checkLoginMW(objRepo),
-        handleWrongLoginMW(objRepo));
+        handleWrongLoginMW(objRepo),
+        checkPrivilegeMW(objRepo));
 
     app.get('/register',
         renderMW(objRepo, 'register'));
@@ -43,46 +44,39 @@ module.exports = function (app) {
 
     app.use('/order',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         saveOrderMW(objRepo),
         renderMW(objRepo, 'order'));
 
     app.get('/customer/list',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomersMW(objRepo),
         renderMW(objRepo, 'dashboard'));
 
     app.use('/customer/add',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         saveCustomerMW(objRepo),
         renderMW(objRepo, 'customer_add'));
 
     app.get('/customer/del/:userid',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         delCustomerMW(objRepo));
 
     app.use('/customer/edit/:userid',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         saveCustomerMW(objRepo),
         renderMW(objRepo, 'customer_edit'));
 
     app.get('/customer/order/:userid',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrdersMW(objRepo),
         renderMW(objRepo, 'customer_orders'));
 
     app.use('/customer/order/:userid/add',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         saveOrderMW(objRepo),
@@ -90,13 +84,11 @@ module.exports = function (app) {
 
     app.get('/customer/order/:userid/:orderid/del',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getOrderMW(objRepo),
         delOrderMW(objRepo));
 
     app.use('/customer/order/:userid/:orderid/edit',
         authMW(objRepo),
-        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         saveOrderMW(objRepo),
