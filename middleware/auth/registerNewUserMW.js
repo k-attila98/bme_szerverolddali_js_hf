@@ -1,5 +1,6 @@
 /*
 registers a new user into the db
+redirects to /login
  */
 
 const requireOption = require('../common/requireOption');

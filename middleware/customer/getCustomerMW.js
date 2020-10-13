@@ -1,5 +1,6 @@
 /*
-Fetches a specific customer's data by :userid param
+Fetches a specific customer's data by :userid (req.params.userid) param
+data saved to res.locals.customer
  */
 
 const requireOption = require('../common/requireOption');

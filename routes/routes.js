@@ -1,7 +1,6 @@
 const renderMW = require('../middleware/common/renderMW');
 
 const checkLoginMW = require('../middleware/auth/checkLoginMW');
-const handleWrongLoginMW = require('../middleware/auth/handleWrongLoginMW');
 const registerNewUserMW = require('../middleware/auth/registerNewUserMW');
 const forgotPasswordMW = require('../middleware/auth/forgotPasswordMW');
 const authMW = require('../middleware/auth/authMW');
@@ -29,7 +28,6 @@ module.exports = function (app) {
         renderMW(objRepo, 'login'));
     app.post('/login',
         checkLoginMW(objRepo),
-        handleWrongLoginMW(objRepo),
         checkPrivilegeMW(objRepo));
 
     app.get('/register',

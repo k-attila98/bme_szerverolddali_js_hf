@@ -1,5 +1,6 @@
 /*
 gets all of the customers from the db
+save into res.locals.customers
  */
 
 const requireOption = require('../common/requireOption');

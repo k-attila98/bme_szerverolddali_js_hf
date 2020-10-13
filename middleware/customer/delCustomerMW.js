@@ -1,6 +1,6 @@
 /*
-Deletes customer with all of its orders, data: res.locals.customer
-redirects to /customer/del/:userid
+deletes customer with all of its orders based on data: res.locals.customer
+redirects to /customer/list
  */
 
 const requireOption = require('../common/requireOption');

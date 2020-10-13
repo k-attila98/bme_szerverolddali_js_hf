@@ -1,5 +1,6 @@
 /*
-log the current user out, terminate session, redirect to /
+log the current user out, terminate session
+redirects to /
  */
 
 const requireOption = require('../common/requireOption');
