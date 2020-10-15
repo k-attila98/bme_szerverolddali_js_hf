@@ -6,6 +6,8 @@ redirects to /login
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
+    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+
     return function (req, res, next) {
 
         if((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || (typeof req.body.password === 'undefined')){
@@ -21,12 +23,13 @@ module.exports = function (objectrepository) {
                     return next();
                 }
 
-                //check password
+                //check if password is present
                 if (result.password !== req.body.password) {
-                    res.locals.error.push('Hibás felhasználó/jelszó!b');
+                    res.locals.error.push('Nincs megadva jelszó!');
                     return next();
                 }
 
+                //create new user and save to db
                 var newCustomer = new CustomerModel();
                 newCustomer.name = req.body.name;
                 newCustomer.email = req.body.email;

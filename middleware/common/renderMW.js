@@ -9,5 +9,7 @@ module.exports = function (objectrepository, viewName) {
 
         console.log('render:' + viewName );
         res.end('temp: ' + viewName);
+
+        res.render(viewName);
     };
 };

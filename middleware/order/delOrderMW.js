@@ -1,6 +1,6 @@
 /*
 delete a customer's order from db
-uses :userid (req.params.userid) and :orderid (req.params.orderid)
+uses res.locals.order
  */
 
 const requireOption = require('../common/requireOption');
