@@ -1,5 +1,6 @@
 /*
-if the user is logged in call next, if not redirect to login
+if the user is logged in call next
+if not redirect to login
  */
 
 const requireOption = require('../common/requireOption');

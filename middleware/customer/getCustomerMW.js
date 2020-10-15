@@ -1,5 +1,5 @@
 /*
-Fetches a specific customer's data by :userid (req.params.userid) param
+fetches a specific customer's data by :userid (req.params.userid) param
 data saved to res.locals.customer
  */
 

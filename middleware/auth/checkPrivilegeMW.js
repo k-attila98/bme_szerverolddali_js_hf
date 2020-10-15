@@ -1,5 +1,6 @@
 /*
-checks the privilege level of the logged in user, and sets the correct param in session (req.session)
+checks the privilege level of the logged in user
+sets the correct param in session (req.session)
  */
 
 const requireOption = require('../common/requireOption');

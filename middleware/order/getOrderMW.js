@@ -1,5 +1,6 @@
 /*
-fetches order from db, based on :userid (req.params.userid) and :orderid (req.params.orderid) param
+fetches order from db
+based on :userid (req.params.userid) and :orderid (req.params.orderid) param
  */
 const requireOption = require('../common/requireOption');
 
