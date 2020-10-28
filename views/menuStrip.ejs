@@ -1,0 +1,25 @@
+<header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand">Auto-shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+
+                <% if (privilegeLevel == 1) { %>
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">Adminisztráció</a>
+                </li>
+                <% } %>
+                <li class="nav-item">
+                    <a class="nav-link" href="order.html">Rendelés</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Kilépés</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</header>
