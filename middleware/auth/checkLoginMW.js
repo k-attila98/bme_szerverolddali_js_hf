@@ -6,9 +6,10 @@ if not correct, redirect to /login, set wrong pass param
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
+        /*
         if((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || (typeof req.body.password === 'undefined')){
             return next();
         }
@@ -34,6 +35,7 @@ module.exports = function (objectrepository) {
                 req.session.user.id = result._id;
 
                 return res.redirect('/order');
-        });
+        });*/
+        next();
     };
 };

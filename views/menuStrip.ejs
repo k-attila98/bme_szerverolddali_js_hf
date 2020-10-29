@@ -7,16 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
 
-                <% if (privilegeLevel == 1) { %>
+                <% if (privilegeLevel === 1) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="dashboard.html">Adminisztráció</a>
+                    <a class="nav-link" href="/customer/list">Adminisztráció</a>
                 </li>
                 <% } %>
                 <li class="nav-item">
-                    <a class="nav-link" href="order.html">Rendelés</a>
+                    <a class="nav-link" href="/order">Rendelés</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html">Kilépés</a>
+                    <a class="nav-link" href="/logout">Kilépés</a>
                 </li>
 
             </ul>

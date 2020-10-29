@@ -6,7 +6,7 @@ saved into res.locals.topcustomers
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
         next();

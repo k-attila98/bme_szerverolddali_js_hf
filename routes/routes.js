@@ -1,21 +1,22 @@
 const renderMW = require('../middleware/common/renderMW');
 
-const checkLoginMW = require('../middleware/auth/checkLoginMW');
-const registerNewUserMW = require('../middleware/auth/registerNewUserMW');
-const forgotPasswordMW = require('../middleware/auth/forgotPasswordMW');
 const authMW = require('../middleware/auth/authMW');
+const checkLoginMW = require('../middleware/auth/checkLoginMW');
 const checkPrivilegeMW = require('../middleware/auth/checkPrivilegeMW');
+const forgotPasswordMW = require('../middleware/auth/forgotPasswordMW');
+const logoutMW = require('../middleware/auth/logoutMW');
+const registerNewUserMW = require('../middleware/auth/registerNewUserMW');
 
-const getTopCustomersMW = require('../middleware/customer/getTopCustomersMW');
-const getCustomersMW = require('../middleware/customer/getCustomersMW');
-const getCustomerMW = require('../middleware/customer/getCustomerMW');
-const saveCustomerMW = require('../middleware/customer/saveCustomerMW');
 const delCustomerMW = require('../middleware/customer/delCustomerMW');
+const getCustomerMW = require('../middleware/customer/getCustomerMW');
+const getCustomersMW = require('../middleware/customer/getCustomersMW');
+const getTopCustomersMW = require('../middleware/customer/getTopCustomersMW');
+const saveCustomerMW = require('../middleware/customer/saveCustomerMW');
 
-const getOrdersMW = require('../middleware/order/getOrdersMW');
-const getOrderMW = require('../middleware/order/getOrderMW');
-const saveOrderMW = require('../middleware/order/saveOrderMW');
 const delOrderMW = require('../middleware/order/delOrderMW');
+const getOrderMW = require('../middleware/order/getOrderMW');
+const getOrdersMW = require('../middleware/order/getOrdersMW');
+const saveOrderMW = require('../middleware/order/saveOrderMW');
 
 module.exports = function (app) {
     const objRepo = {};
@@ -40,6 +41,10 @@ module.exports = function (app) {
     app.post('/password_forgot',
         forgotPasswordMW(objRepo));
 
+    app.get('/logout',
+        logoutMW()
+    );
+
     app.use('/order',
         authMW(objRepo),
         getCustomerMW(objRepo),
@@ -54,7 +59,7 @@ module.exports = function (app) {
     app.use('/customer/add',
         authMW(objRepo),
         saveCustomerMW(objRepo),
-        renderMW(objRepo, 'customer_add'));
+        renderMW(objRepo, 'customer_add_edit'));
 
     app.get('/customer/del/:userid',
         authMW(objRepo),
@@ -65,7 +70,7 @@ module.exports = function (app) {
         authMW(objRepo),
         getCustomerMW(objRepo),
         saveCustomerMW(objRepo),
-        renderMW(objRepo, 'customer_edit'));
+        renderMW(objRepo, 'customer_add_edit'));
 
     app.get('/customer/order/:userid',
         authMW(objRepo),
@@ -76,12 +81,13 @@ module.exports = function (app) {
     app.use('/customer/order/:userid/add',
         authMW(objRepo),
         getCustomerMW(objRepo),
-        getOrderMW(objRepo),
+        //getOrderMW(objRepo),
         saveOrderMW(objRepo),
-        renderMW(objRepo, 'order_add'));
+        renderMW(objRepo, 'order_add_edit'));
 
     app.get('/customer/order/:userid/:orderid/del',
         authMW(objRepo),
+        getCustomerMW(objRepo),
         getOrderMW(objRepo),
         delOrderMW(objRepo));
 
@@ -90,6 +96,6 @@ module.exports = function (app) {
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         saveOrderMW(objRepo),
-        renderMW(objRepo, 'order_edit'));
+        renderMW(objRepo, 'order_add_edit'));
 
 }

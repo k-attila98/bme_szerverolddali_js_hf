@@ -6,10 +6,11 @@ sets the correct param in session (req.session)
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
 
+        /*
         CustomerModel.findOne( {_id: req.session.user.id},
             function (err, result) {
                 if ((err) || (!result)) {
@@ -19,7 +20,8 @@ module.exports = function (objectrepository) {
 
                 req.session.user.privilege = result.privilegeLevel;
             });
-
+        */
+        res.locals.user.privilegelevel = 1;
         next();
     };
 };

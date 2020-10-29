@@ -6,10 +6,11 @@ redirects to /login
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
 
+        /*
         //if not enough parameter
         if((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined')){
             res.locals.error.push('Nem lett megadva email!');
@@ -25,8 +26,22 @@ module.exports = function (objectrepository) {
                 }
 
                 //print pw
-                console.log("The password for " + result.email +"is: " + result.password);
+                console.log("The password for " + result.email +" is: " + result.password);
                 res.redirect('/login');
         });
+
+         */
+
+        const result = {
+            _id: '123',
+            name: 'Asd1',
+            password: 'asdasd',
+            address: 'Cim1',
+            country: 'HU',
+            email: 'Email1'
+        };
+
+        console.log("The password for " + result.email +" is: " + result.password);
+        res.redirect('/login');
     };
 };

@@ -6,10 +6,11 @@ data saved to res.locals.customer
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
 
+        /*
         CustomerModel.findOne({ _id: req.params.userid }, (err, customer) => {
             if(err || !customer) {
                 return  next(err);
@@ -19,5 +20,18 @@ module.exports = function (objectrepository) {
             return next();
         }
         );
+
+
+        */
+        res.locals.customer = {
+                _id: '123',
+                name: 'Asd1',
+                password: 'asdasd',
+                address: 'Cim1',
+                country: 'HU',
+                email: 'Email1'
+            };
+
+        next();
     };
 };

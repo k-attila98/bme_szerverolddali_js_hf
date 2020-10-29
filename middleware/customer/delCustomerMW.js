@@ -8,6 +8,7 @@ const requireOption = require('../common/requireOption');
 module.exports = function (objectrepository) {
     return function (req, res, next) {
 
+        /*
         if(typeof(res.locals.customer === 'undefined')){
             return next();
         }
@@ -19,5 +20,12 @@ module.exports = function (objectrepository) {
             return res.redirect('/customer/list');
         }
         );
+
+         */
+
+        //next();
+
+        console.log('deleted a customer');
+        return res.redirect('/customer/list');
     };
 };
