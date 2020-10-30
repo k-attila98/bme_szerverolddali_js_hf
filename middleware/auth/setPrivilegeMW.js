@@ -1,5 +1,7 @@
 /*
 sets the privilege level of the logged in user from db
+0: user mode
+1: admin mode
  */
 
 const requireOption = require('../common/requireOption');
