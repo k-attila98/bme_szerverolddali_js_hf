@@ -1,22 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<%- include('header') %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <title>Autó-shop - Álmaid autója</title>
-</head>
-<body class="bg-light">
-
-<%- include('menuStrip', {privilegeLevel: 1}) -%>
+<%- include('menuStrip') %>
 
 
 <div class="container">
-    <p><br/></p>
+    <br/>
     <div class="py-5 text-center">
-        <h2>Rendelés</h2>
+        <h1>Rendelés</h1>
     </div>
 
     <div class="row">
@@ -79,7 +69,10 @@
                 </div>
 
                 <button class="btn btn-primary" type="submit">Rendelés leadása</button>
-                <a class="btn btn-link" href="/customer/list">Mégse</a>
+
+                <% if (privilegelevel === 1) { %>
+                    <a class="btn btn-link" href="/customer/list">Mégse</a>
+                <% } %>
             </form>
             <p>&nbsp;</p>
         </div>

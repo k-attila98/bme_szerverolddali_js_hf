@@ -3,7 +3,7 @@ const renderMW = require('../middleware/common/renderMW');
 const authMW = require('../middleware/auth/authMW');
 const checkLoginMW = require('../middleware/auth/checkLoginMW');
 const checkPrivilegeMW = require('../middleware/auth/checkPrivilegeMW');
-const forgotPasswordMW = require('../middleware/auth/forgotPasswordMW');
+const forgotPasswordMW = require('../middleware/auth/lostPasswordMW');
 const logoutMW = require('../middleware/auth/logoutMW');
 const registerNewUserMW = require('../middleware/auth/registerNewUserMW');
 
@@ -28,17 +28,16 @@ module.exports = function (app) {
     app.get('/login',
         renderMW(objRepo, 'login'));
     app.post('/login',
-        checkLoginMW(objRepo),
-        checkPrivilegeMW(objRepo));
+        checkLoginMW(objRepo));
 
     app.get('/register',
         renderMW(objRepo, 'register'));
     app.post('/register',
         registerNewUserMW(objRepo));
 
-    app.get('/password_forgot',
+    app.get('/lost_password',
         renderMW(objRepo, 'lost_password'));
-    app.post('/password_forgot',
+    app.post('/lost_password',
         forgotPasswordMW(objRepo));
 
     app.get('/logout',
@@ -47,39 +46,46 @@ module.exports = function (app) {
 
     app.use('/order',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         saveOrderMW(objRepo),
         renderMW(objRepo, 'order'));
 
     app.get('/customer/list',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomersMW(objRepo),
         renderMW(objRepo, 'dashboard'));
 
     app.use('/customer/add',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         saveCustomerMW(objRepo),
         renderMW(objRepo, 'customer_add_edit'));
 
     app.get('/customer/del/:userid',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         delCustomerMW(objRepo));
 
     app.use('/customer/edit/:userid',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         saveCustomerMW(objRepo),
         renderMW(objRepo, 'customer_add_edit'));
 
     app.get('/customer/order/:userid',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrdersMW(objRepo),
         renderMW(objRepo, 'customer_orders'));
 
     app.use('/customer/order/:userid/add',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         //getOrderMW(objRepo),
         saveOrderMW(objRepo),
@@ -87,12 +93,14 @@ module.exports = function (app) {
 
     app.get('/customer/order/:userid/:orderid/del',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         delOrderMW(objRepo));
 
     app.use('/customer/order/:userid/:orderid/edit',
         authMW(objRepo),
+        checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         saveOrderMW(objRepo),

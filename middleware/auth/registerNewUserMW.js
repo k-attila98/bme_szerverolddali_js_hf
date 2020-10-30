@@ -40,6 +40,6 @@ module.exports = function (objectrepository) {
         });
 
          */
-        next();
+        res.redirect('/login');
     };
 };

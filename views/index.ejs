@@ -34,14 +34,16 @@
                                     Rendelések száma
                                 </th>
                             </tr>
-                            <tr>
-                                <td>
-                                    Ali Abdul Aziz
-                                </td>
-                                <td>
-                                    2
-                                </td>
-                            </tr>
+                            <% topCustomers.forEach(function(customer){ %>
+                                <tr>
+                                    <td>
+                                        <%= customer.name %>
+                                    </td>
+                                    <td>
+                                        <%= customer.orderCount %>
+                                    </td>
+                                </tr>
+                            <% }); %>
                         </table>
                     </div>
                     <div class="col-2">&nbsp;</div>

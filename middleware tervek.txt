@@ -25,7 +25,7 @@ renderMW.js
 checkLoginMW.js
 handleWrongLoginMW.js
 registerNewUserMW.js
-forgotPasswordMW.js
+lostPasswordMW.js
 authMW.js
 checkPrivilegeMW.js
 

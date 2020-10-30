@@ -21,7 +21,8 @@ module.exports = function (objectrepository) {
                 req.session.user.privilege = result.privilegeLevel;
             });
         */
-        res.locals.user.privilegelevel = 1;
+
+        res.locals.privilegelevel = 1;
         next();
     };
 };

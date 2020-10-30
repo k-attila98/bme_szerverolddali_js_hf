@@ -35,7 +35,10 @@ module.exports = function (objectrepository) {
                 req.session.user.id = result._id;
 
                 return res.redirect('/order');
-        });*/
+        });
+
+        */
+        return res.redirect('/order');
         next();
     };
 };
