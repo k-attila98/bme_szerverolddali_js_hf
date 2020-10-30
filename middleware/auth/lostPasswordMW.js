@@ -34,11 +34,11 @@ module.exports = function (objectrepository) {
 
         const result = {
             _id: '123',
-            name: 'Asd1',
-            password: 'asdasd',
-            address: 'Cim1',
-            country: 'HU',
-            email: 'Email1'
+            name: 'Ali Abdul Aziz',
+            password: 'barossgabor1',
+            address: '1072 Budapest, Akácfa utca 18.',
+            country: 'Magyarország',
+            email: 'aliakiraly@gmail.com'
         };
 
         console.log("The password for " + result.email +" is: " + result.password);

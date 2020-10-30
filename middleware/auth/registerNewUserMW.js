@@ -40,7 +40,7 @@ module.exports = function (objectrepository) {
         });
 
          */
-        console.log(req.body.email + ' ' + req.body.password + ' ' + req.body.fullName);
+        console.log('registered:' + req.body.email + ' ' + req.body.password + ' ' + req.body.fullName);
         res.redirect('/login');
     };
 };

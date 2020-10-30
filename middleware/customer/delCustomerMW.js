@@ -23,7 +23,6 @@ module.exports = function (objectrepository) {
 
          */
 
-        //next();
 
         console.log('deleted a customer: ' + req.params.userid);
         return res.redirect('/customer/list');
