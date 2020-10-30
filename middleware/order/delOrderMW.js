@@ -8,8 +8,8 @@ const requireOption = require('../common/requireOption');
 module.exports = function (objectrepository) {
     return function (req, res, next) {
 
-        console.log('deleted an order');
-        res.redirect('/customer/order/'+res.locals.customer._id);
+        console.log('deleted an order: ' + req.params.orderid + ' userid: ' + req.params.userid);
+        res.redirect('/customer/order/' + req.params.userid);
         next();
     };
 };

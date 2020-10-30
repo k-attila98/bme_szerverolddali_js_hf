@@ -2,7 +2,7 @@
 
 <body class="bg-light">
 
-<%- include('menuStrip', {privilegeLevel: 1}) -%>
+<%- include('menuStrip') -%>
 
 
 <div class="container">
@@ -20,7 +20,7 @@
     <div class="row">
         <div class="col-md-12 order-md-1">
             <h4 class="mb-3">Számlázási cím</h4>
-            <form class="needs-validation" method="POST">
+            <form class="needs-validation" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="fullName">Teljes név</label>
@@ -64,7 +64,7 @@
 
                 <hr class="mb-4">
 
-                <input type="submit" class="btn btn-primary" href="/customer/list" value="Hozzáadás" />
+                <input type="submit" class="btn btn-primary" value="<%= (typeof order === 'undefined') ?  'Rendelő' : 'Változtatások' %> mentése" />
                 <a class="btn btn-link" href="/customer/list">Mégse</a>
             </form>
             <p>&nbsp;</p>

@@ -1,5 +1,5 @@
 /*
-checks the privilege level of the logged in user
+sets the privilege level of the logged in user from db
  */
 
 const requireOption = require('../common/requireOption');
@@ -21,9 +21,7 @@ module.exports = function (objectrepository) {
             });
         */
 
-
-        if(res.locals.privilegelevel !== 1)
-            res.redirect('/order');
+        res.locals.privilegelevel = 0;
 
         next();
     };

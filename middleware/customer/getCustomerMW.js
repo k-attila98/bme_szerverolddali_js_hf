@@ -25,7 +25,7 @@ module.exports = function (objectrepository) {
         */
         res.locals.customer = {
                 _id: '123',
-                name: 'Ali abdul Aziz',
+                name: 'Ali Abdul Aziz',
                 password: 'barossgabor1',
                 address: '1072 Budapest, Akácfa utca 18.',
                 country: 'Magyarország',

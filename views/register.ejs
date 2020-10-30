@@ -15,14 +15,14 @@
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label for="fullName">Teljes név</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="" value="" required>
+                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Érvényes név szükséges
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="password">Jelszó</label>
-                        <input type="password" class="form-control" id="password" placeholder="" value="" required>
+                        <input type="password" class="form-control" id="password" name="password"  placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Érvényes jelszó szükséges.
                         </div>
@@ -31,7 +31,7 @@
 
                 <div class="mb-3">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="arvizturo@tukorfurogep.hu" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="arvizturo@tukorfurogep.hu" required>
                     <div class="invalid-feedback">
                         Kérlek írd be a gyakran használt email címed szállítási infok miatt.
                     </div>
@@ -39,7 +39,7 @@
 
                 <div class="mb-3">
                     <label for="address">Cím</label>
-                    <input type="text" class="form-control" id="address" placeholder="Írd be a címed irányítószámmal és várossal együtt..." required>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Írd be a címed irányítószámmal és várossal együtt..." required>
                     <div class="invalid-feedback">
                         Kérlek írd be a szállítási címet.
                     </div>
@@ -47,7 +47,7 @@
 
                 <div class="mb-3">
                     <label for="address">Ország</label>
-                    <input type="text" class="form-control" id="country" placeholder="Írd be az országod..." required>
+                    <input type="text" class="form-control" id="country" name="country" placeholder="Írd be az országod..." required>
                     <div class="invalid-feedback">
                         Kérlek írd be az országot ahova szállítsunk.
                     </div>

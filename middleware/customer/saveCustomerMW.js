@@ -8,7 +8,8 @@ const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        if((typeof req.body.name === 'undefined') ||
+
+        if((typeof req.body.fullName === 'undefined') ||
             (typeof req.body.address === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
             (typeof req.body.password === 'undefined') ||
@@ -16,7 +17,7 @@ module.exports = function (objectrepository) {
             return next();
         }
 
+        console.log('saved a new user');
         res.redirect('/customer/list');
-        //next();
     };
 };

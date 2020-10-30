@@ -16,8 +16,7 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        //console.log(req.body.carFuel + " " + req.body.carColour + " " + req.body.carFrame + " " + req.body.carEngine)
-        console.log(res.locals.customer);
+        console.log('saved an order for userid: ' +  req.params.userid);
         next();
     };
 };
