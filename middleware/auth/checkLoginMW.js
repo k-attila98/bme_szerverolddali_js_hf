@@ -31,8 +31,6 @@ module.exports = function (objectrepository) {
                 }
 
                 //if everything is correct, create session, go to landing page
-
-                console.log('bejelentkezett');
                 req.session.loggedin = true;
                 req.session.userid = result._id;
 

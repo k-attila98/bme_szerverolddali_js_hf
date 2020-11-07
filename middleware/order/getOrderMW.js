@@ -6,7 +6,22 @@ saves to res.locals.order
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
+    const OrderModel = requireOption(objectrepository, 'OrderModel');
+
     return function (req, res, next) {
+
+        OrderModel.findOne({ _id: req.params.orderid }, (err, order) => {
+            if(err || !order)
+            {
+                return next(err);
+            }
+
+            res.locals.order = order;
+            return next();
+        });
+
+
+        /*
         res.locals.order = {
             _id: '2',
             carFuel: 'benzin',
@@ -16,5 +31,7 @@ module.exports = function (objectrepository) {
         };
 
         next();
+
+         */
     };
 };

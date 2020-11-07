@@ -19,7 +19,7 @@ module.exports = function (objectrepository) {
         //find customer by email
         CustomerModel.findOne( { email: req.body.email },
             function (err, result) {
-                if ((err) || (!result)) {
+                if ((err) || (!result) || (result.privilegeLevel === 1)) {
                     res.locals.error = 'Nem található ilyen felhasználó!';
                     return next();
                 }

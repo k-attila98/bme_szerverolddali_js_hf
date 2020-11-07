@@ -6,10 +6,11 @@ saved into res.locals.topcustomers
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    const OrderModel = requireOption(objectrepository, 'OrderModel');
 
     return function (req, res, next) {
-        CustomerModel.aggregate(
+
+        OrderModel.aggregate(
             [
                 { $group: {
                         _id: '$_orderer',
@@ -26,7 +27,8 @@ module.exports = function (objectrepository) {
                 { $unwind: { path: '$orderer' } }
             ],
             function(err, result) {
-                if (err) {
+                if (err)
+                {
                     return next(err);
                 }
 

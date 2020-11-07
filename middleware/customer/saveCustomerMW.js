@@ -11,7 +11,7 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        if((typeof req.body.fullName === 'undefined') ||
+        if((typeof req.body.name === 'undefined') ||
             (typeof req.body.address === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
             (typeof req.body.password === 'undefined') ||
@@ -25,7 +25,7 @@ module.exports = function (objectrepository) {
 
         }
 
-        res.locals.customer.name = req.body.fullName;
+        res.locals.customer.name = req.body.name;
         res.locals.customer.address = req.body.address;
         res.locals.customer.email = req.body.email;
         res.locals.customer.password = req.body.password;
@@ -39,7 +39,7 @@ module.exports = function (objectrepository) {
             }
 
             console.log('saved a new user');
-            res.redirect('/customer/list');
+            return res.redirect('/customer/list');
         });
 
 
