@@ -19,36 +19,39 @@ const getOrderMW = require('../middleware/order/getOrderMW');
 const getOrdersMW = require('../middleware/order/getOrdersMW');
 const saveOrderMW = require('../middleware/order/saveOrderMW');
 
+const CustomerModel = require('../models/customer');
+const OrderModel = require('../models/order');
+
 module.exports = function (app) {
-    const objRepo = {};
+    const objRepo = {
+        CustomerModel: CustomerModel,
+        OrderModel: OrderModel
+    };
 
     app.get('/',
         getTopCustomersMW(objRepo),
         renderMW(objRepo, 'index'));
 
-    app.get('/login',
+    app.use('/login',
+        checkLoginMW(objRepo),
         renderMW(objRepo, 'login'));
-    app.post('/login',
-        checkLoginMW(objRepo));
 
-    app.get('/register',
+    app.use('/register',
+        registerNewUserMW(objRepo),
         renderMW(objRepo, 'register'));
-    app.post('/register',
-        registerNewUserMW(objRepo));
 
-    app.get('/lost_password',
+    app.use('/lost_password',
+        forgotPasswordMW(objRepo),
         renderMW(objRepo, 'lost_password'));
-    app.post('/lost_password',
-        forgotPasswordMW(objRepo));
 
-    app.get('/logout',
+    app.use('/logout',
         logoutMW()
     );
 
     app.use('/order',
         authMW(objRepo),
         setPrivilegeMW(objRepo),
-        // checkPrivilegeMW(objRepo),
+        //checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         saveOrderMW(objRepo),
         renderMW(objRepo, 'order'));

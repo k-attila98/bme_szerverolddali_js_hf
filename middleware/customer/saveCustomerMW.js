@@ -7,6 +7,8 @@ redirect to /customer/list
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
+    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+
     return function (req, res, next) {
 
         if((typeof req.body.fullName === 'undefined') ||
@@ -17,7 +19,30 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        console.log('saved a new user');
-        res.redirect('/customer/list');
+        if(typeof res.locals.customer === 'undefined')
+        {
+            res.locals.customer = new CustomerModel();
+
+        }
+
+        res.locals.customer.name = req.body.fullName;
+        res.locals.customer.address = req.body.address;
+        res.locals.customer.email = req.body.email;
+        res.locals.customer.password = req.body.password;
+        res.locals.customer.country = req.body.country;
+
+        res.locals.customer.save((err) =>
+        {
+            if(err)
+            {
+                return next(err);
+            }
+
+            console.log('saved a new user');
+            res.redirect('/customer/list');
+        });
+
+
+
     };
 };

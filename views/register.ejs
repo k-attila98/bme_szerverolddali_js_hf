@@ -11,6 +11,9 @@
     <div class="row">
         <div class="col-md-12 order-md-1">
             <h4 class="mb-3">Felhasználó adatai</h4>
+            <% if (typeof error !== 'undefined') { %>
+                <div class="alert alert-danger"><%= error %></div>
+            <% } %>
             <form class="needs-validation" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">

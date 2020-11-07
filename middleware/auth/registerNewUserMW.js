@@ -6,11 +6,10 @@ redirects to /login
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
-    //const CustomerModel = requireOption(objectrepository, 'CustomerModel');
+    const CustomerModel = requireOption(objectrepository, 'CustomerModel');
 
     return function (req, res, next) {
 
-        /*
         if((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') || (typeof req.body.password === 'undefined')){
             return next();
         }
@@ -20,13 +19,13 @@ module.exports = function (objectrepository) {
         CustomerModel.findOne( {email: req.body.email},
             function (err, result) {
                 if ((err) || (result !== null)) {
-                    res.locals.error.push('Már regisztráltak ezzel az emaillel');
+                    res.locals.error = 'Már regisztráltak ezzel az emaillel';
                     return next();
                 }
 
                 //check if password is present
                 if (result.password !== req.body.password) {
-                    res.locals.error.push('Nincs megadva jelszó!');
+                    res.locals.error = 'Nincs megadva jelszó!';
                     return next();
                 }
 
@@ -39,8 +38,10 @@ module.exports = function (objectrepository) {
                 newCustomer.save(err => { res.redirect('/login'); } );
         });
 
-         */
+        /*
         console.log('registered:' + req.body.email + ' ' + req.body.password + ' ' + req.body.fullName);
         res.redirect('/login');
+
+         */
     };
 };

@@ -4,15 +4,20 @@
 
     <div class="row" style="margin: 0 0 0 0">
         <div class="container col-md-3">
+
         <form class="form-signin" style="padding-top: 100px" method="post" novalidate>
             <h1 class="h3 mb-3 font-weight-normal">Kérlek jelentkezz be</h1>
 
+            <% if (typeof error !== 'undefined') { %>
+                <div class="alert alert-danger"><%= error %></div>
+            <% } %>
+
             <label for="loginEmail" class="sr-only">E-mail cím</label>
-            <input type="email" id="loginEmail" name="loginEmail" class="form-control" placeholder="E-mail cím" required autofocus>
+            <input type="email" id="loginEmail" name="email" class="form-control" placeholder="E-mail cím" required>
             <br />
 
             <label for="loginPassword" class="sr-only">Jelszó</label>
-            <input type="password" id="loginPassword" name="loginPassword" class="form-control" placeholder="Jelszó" required>
+            <input type="password" id="loginPassword" name="password" class="form-control" placeholder="Jelszó" required>
 
             <div class="mb-3">Még nincs felhasználód? <a href="/register">Regisztrálj itt!</a></div>
             <div class="mb-3">Elfelejtetted a jelszavad? <a href="/lost_password">Kérj újat itt!</a></div>

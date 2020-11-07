@@ -8,11 +8,9 @@ const requireOption = require('../common/requireOption');
 module.exports = function (objectrepository) {
     return function (req, res, next) {
 
-        /*
-        if(typeof req.session.user.loggedin === 'undefined' || req.session.user.loggedin !== true){
+        if(typeof req.session.loggedin === 'undefined' || req.session.loggedin !== true){
             return res.redirect('/');
         }
-        */
 
         next();
     };
