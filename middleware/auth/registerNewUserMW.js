@@ -23,11 +23,6 @@ module.exports = function (objectrepository) {
                     return next();
                 }
 
-                //check if password is present
-                if (result.password !== req.body.password) {
-                    res.locals.error = 'Nincs megadva jelszó!';
-                    return next();
-                }
 
                 //create new user and save to db
                 var newCustomer = new CustomerModel();
@@ -35,6 +30,7 @@ module.exports = function (objectrepository) {
                 newCustomer.email = req.body.email;
                 newCustomer.password = req.body.password;
                 newCustomer.address = req.body.address;
+                newCustomer.country = req.body.country;
                 newCustomer.save(err => { res.redirect('/login'); } );
         });
 

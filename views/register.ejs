@@ -11,14 +11,16 @@
     <div class="row">
         <div class="col-md-12 order-md-1">
             <h4 class="mb-3">Felhasználó adatai</h4>
+
             <% if (typeof error !== 'undefined') { %>
                 <div class="alert alert-danger"><%= error %></div>
             <% } %>
+
             <form class="needs-validation" method="post">
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="fullName">Teljes név</label>
-                        <input type="text" class="form-control" id="fullName" name="fullName" placeholder="" value="" required>
+                        <label for="name">Teljes név</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="" value="" required>
                         <div class="invalid-feedback">
                             Érvényes név szükséges
                         </div>
