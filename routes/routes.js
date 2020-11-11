@@ -48,6 +48,8 @@ module.exports = function (app) {
         logoutMW()
     );
 
+
+
     app.use('/order',
         authMW(objRepo),
         setPrivilegeMW(objRepo),

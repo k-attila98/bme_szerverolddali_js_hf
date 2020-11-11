@@ -10,11 +10,9 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        //console.log(req.params.userid);
-
-        if(typeof req.params.userid === 'undefined')
+        if(typeof req.params.userid !== 'undefined')
         {
-            CustomerModel.findOne({ _id: req.session.userid }, (err, customer) => {
+            CustomerModel.findOne({ _id: req.params.userid }, (err, customer) => {
                     if(err || !customer) {
                         return  next(err);
                     }
@@ -26,7 +24,7 @@ module.exports = function (objectrepository) {
         }
         else
         {
-            CustomerModel.findOne({ _id: req.params.userid }, (err, customer) => {
+            CustomerModel.findOne({ _id: req.session.userid }, (err, customer) => {
                     if(err || !customer) {
                         return  next(err);
                     }

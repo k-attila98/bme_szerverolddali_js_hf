@@ -1,5 +1,5 @@
 /*
-saves an order to the db, uses :userid (req.params.userid)
+saves an order to the db
 if there is an existing one update
 redirect to /order
 */
@@ -11,10 +11,13 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        if((typeof req.body.carFuel === 'undefined') ||
+        if(
+            (typeof req.body.carFuel === 'undefined') ||
             (typeof req.body.carColour === 'undefined') ||
             (typeof req.body.carFrame === 'undefined') ||
-            (typeof req.body.carEngine === 'undefined'))
+            (typeof req.body.carEngine === 'undefined') ||
+            (typeof res.locals.customer === 'undefined')
+        )
         {
             return next();
         }
@@ -30,6 +33,33 @@ module.exports = function (objectrepository) {
         res.locals.order.carEngine = req.body.carEngine;
         res.locals.order._orderer = res.locals.customer._id;
 
+        if(req.session.userid === res.locals.customer._id)
+        {
+            res.locals.order.save(err => {
+                if(err)
+                {
+                    return next(err);
+                }
+
+                return res.redirect('/order');
+            });
+        }
+        else
+        {
+            res.locals.order.save(err => {
+                if(err)
+                {
+                    return next(err);
+                }
+
+                return res.redirect(`/customer/order/${res.locals.customer._id}`);
+            });
+        }
+
+
+
+        /*
+        //ezt még át kell gondolni
         res.locals.order.save(err => {
             if(err)
             {
@@ -45,5 +75,7 @@ module.exports = function (objectrepository) {
                 return res.redirect(`/customer/order/${res.locals.customer._id}`);
             }
         });
+
+         */
     };
 };

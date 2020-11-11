@@ -15,7 +15,8 @@ module.exports = function (objectrepository) {
             (typeof req.body.address === 'undefined') ||
             (typeof req.body.email === 'undefined') ||
             (typeof req.body.password === 'undefined') ||
-            (typeof req.body.country === 'undefined')){
+            (typeof req.body.country === 'undefined'))
+        {
             return next();
         }
 
@@ -38,7 +39,6 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
 
-            console.log('saved a new user');
             return res.redirect('/customer/list');
         });
 

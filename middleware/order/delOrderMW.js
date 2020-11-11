@@ -13,15 +13,13 @@ module.exports = function (objectrepository) {
             return next();
         }
 
-        res.locals.order.redirect(err => {
+        res.locals.order.remove(err => {
             if(err)
             {
                 return next(err);
             }
 
-            console.log('deleted an order: ' + req.params.orderid + ' userid: ' + req.params.userid);
-
-            return res.redirect(`/customer/order/${res.locals.user._id}`);
+            return res.redirect(`/customer/order/${res.locals.customer._id}`);
         });
 
 

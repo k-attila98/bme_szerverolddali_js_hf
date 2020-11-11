@@ -26,15 +26,13 @@
 
     <div class="row">
         <div class="col-md-12 order-md-1">
-            <form class="needs-validation">
-
-
+            <form class="needs-validation" method="post">
                 <h4 class="mb-3">Adatok</h4>
 
                 <div class="row">
                     <div class="col-md-5 mb-3">
-                        <label for="fuel">Üzemanyag típus</label>
-                        <select class="custom-select d-block w-100" id="fuel" name="fuel"  required>
+                        <label for="carFuel">Üzemanyag típus</label>
+                        <select class="custom-select d-block w-100" id="carFuel" name="carFuel"  required>
                             <option value="" <%= (typeof order === 'undefined') ? 'selected': '' %> >Válassz...</option>
                             <option value="benzin" <%= (typeof order !== 'undefined') && (order.carFuel === 'benzin') ? 'selected': '' %> >benzin</option>
                             <option value="dízel" <%= (typeof order !== 'undefined') && (order.carFuel === 'dízel') ? 'selected': '' %> >dízel</option>
@@ -48,24 +46,24 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="colour">Szín</label>
-                    <input type="text" class="form-control" id="colour" name="colour" placeholder="pl. #FFF6C5 vagy éjfél kék" value="<%= (typeof order === 'undefined') ? '' : order.carColour %>" required>
+                    <label for="carColour">Szín</label>
+                    <input type="text" class="form-control" id="carColour" name="carColour" placeholder="pl. #FFF6C5 vagy éjfél kék" value="<%= (typeof order === 'undefined') ? '' : order.carColour %>" required>
                     <div class="invalid-feedback">
                         Kérlek írd be a kigondolt színét az autódnak.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="frame">Kasztni alap</label>
-                    <input type="text" class="form-control" id="frame" name="frame" placeholder="pl. Nissan GTR R34" value="<%= (typeof order === 'undefined') ? '' : order.carFrame %>" required>
+                    <label for="carFrame">Kasztni alap</label>
+                    <input type="text" class="form-control" id="carFrame" name="carFrame" placeholder="pl. Nissan GTR R34" value="<%= (typeof order === 'undefined') ? '' : order.carFrame %>" required>
                     <div class="invalid-feedback">
                         Kérlek írd be milyen formája legyen az autó kasztnijának, mi legyen az alapja.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label for="engine">Motor típus</label>
-                    <input type="text" class="form-control" id="engine" name="engine" placeholder="pl. 2JZ" value="<%= (typeof order === 'undefined') ? '' : order.carEngine %>" required>
+                    <label for="carEngine">Motor típus</label>
+                    <input type="text" class="form-control" id="carEngine" name="carEngine" placeholder="pl. 2JZ" value="<%= (typeof order === 'undefined') ? '' : order.carEngine %>" required>
                     <div class="invalid-feedback">
                         Kérlek írd be a használni kívánt motor típusát.
                     </div>
