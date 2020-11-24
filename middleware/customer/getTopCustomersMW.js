@@ -1,5 +1,5 @@
 /*
-gets the top 5/10 customers from the db based on the number of orders
+gets the top 10 customers from the db based on the number of orders
 saved into res.locals.topcustomers
  */
 
@@ -20,7 +20,8 @@ module.exports = function (objectrepository) {
                         from: 'customers',
                         localField: '_id',
                         foreignField: '_id',
-                        as: 'orderer'
+                        as: 'orderer',
+
                     } },
                 { $sort: { count: -1 } },
                 { $limit: 10 },

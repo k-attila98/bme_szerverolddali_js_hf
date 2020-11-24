@@ -19,14 +19,14 @@ module.exports = function (objectrepository) {
             function (err, result) {
                 if ((err) || (!result)) {
                     res.locals.error = 'Hibás felhasználó/jelszó!';
-                    console.log(res.locals.error);
+                    //console.log(res.locals.error);
                     return next();
                 }
 
                 //check password
                 if (result.password !== req.body.password) {
                     res.locals.error = 'Hibás felhasználó/jelszó!';
-                    console.log(res.locals.error);
+                    //console.log(res.locals.error);
                     return next();
                 }
 

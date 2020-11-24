@@ -10,17 +10,32 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        OrderModel.find({ _orderer: res.locals.customer._id }, (err, orders) => {
+        if(typeof req.params.userid !== 'undefined') {
+            OrderModel.find({_orderer: req.params.userid}, (err, orders) => {
 
-            if(err)
-            {
-                return next(err);
-            }
+                if (err) {
+                    return next(err);
+                }
 
-            res.locals.orders = orders;
-            return next();
+                res.locals.orders = orders;
+                return next();
 
-        });
+            });
+        }
+        else
+        {
+            OrderModel.find({_orderer: req.session.userid}, (err, orders) => {
+
+                if (err) {
+                    return next(err);
+                }
+
+                res.locals.orders = orders;
+                return next();
+
+            });
+        }
+
 
     };
 };

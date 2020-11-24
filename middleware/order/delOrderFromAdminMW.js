@@ -19,7 +19,7 @@ module.exports = function (objectrepository) {
                 return next(err);
             }
 
-            return res.redirect(`/my_orders`);
+            return res.redirect(`/customer/order/${res.locals.customer._id}`);
         });
 
     };

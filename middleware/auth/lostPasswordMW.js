@@ -12,7 +12,6 @@ module.exports = function (objectrepository) {
 
         //if not enough parameter
         if((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined')){
-            //res.locals.error = 'Nem lett megadva email!';
             return next();
         }
 
