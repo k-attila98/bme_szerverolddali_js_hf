@@ -19,19 +19,5 @@ module.exports = function (objectrepository) {
             res.locals.order = order;
             return next();
         });
-
-
-        /*
-        res.locals.order = {
-            _id: '2',
-            carFuel: 'benzin',
-            carFrame: 'Fiat Polski',
-            carEngine: '2JZ',
-            carColour: '#FFF6C5'
-        };
-
-        next();
-
-         */
     };
 };

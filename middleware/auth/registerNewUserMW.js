@@ -33,11 +33,5 @@ module.exports = function (objectrepository) {
                 newCustomer.country = req.body.country;
                 newCustomer.save(err => { res.redirect('/login'); } );
         });
-
-        /*
-        console.log('registered:' + req.body.email + ' ' + req.body.password + ' ' + req.body.fullName);
-        res.redirect('/login');
-
-         */
     };
 };

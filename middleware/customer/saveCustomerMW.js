@@ -42,7 +42,5 @@ module.exports = function (objectrepository) {
             return res.redirect('/customer/list');
         });
 
-
-
     };
 };

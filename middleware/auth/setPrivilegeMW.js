@@ -20,11 +20,8 @@ module.exports = function (objectrepository) {
 
                 req.session.userprivilege = result.privilegeLevel;
                 res.locals.privilegelevel = result.privilegeLevel;
-                //res.locals.privilegelevel = 1;
 
                 return next();
             });
-
-
     };
 };

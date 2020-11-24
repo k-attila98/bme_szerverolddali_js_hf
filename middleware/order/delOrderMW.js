@@ -22,7 +22,5 @@ module.exports = function (objectrepository) {
             return res.redirect(`/customer/order/${res.locals.customer._id}`);
         });
 
-
-        //res.redirect('/customer/order/' + req.params.userid);
     };
 };

@@ -22,10 +22,5 @@ module.exports = function (objectrepository) {
         }
         );
 
-        /*
-        console.log('deleted a customer: ' + req.params.userid);
-        return res.redirect('/customer/list');
-
-         */
     };
 };
