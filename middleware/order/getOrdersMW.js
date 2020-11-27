@@ -18,7 +18,6 @@ module.exports = function (objectrepository) {
                 }
 
                 res.locals.orders = orders;
-                console.log(res.locals.orders);
                 return next();
 
             });

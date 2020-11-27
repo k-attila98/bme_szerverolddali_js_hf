@@ -2,7 +2,6 @@ const Schema = require('mongoose').Schema;
 const db = require('../config/database');
 
 const Customer = db.model('Customer', {
-    //_id: Schema.Types.ObjectId,
     name: {type: String, default: '-'},
     password: String,
     address: {type: String, default: '-'},

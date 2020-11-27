@@ -24,7 +24,7 @@ module.exports = function (objectrepository) {
                 }
 
                 //print pw
-                console.log("The password for " + result.email +" is: " + result.password);
+                console.log('[' + 'Lost password'.bgWhite.black + "] The password for " + result.email +" is: " + result.password);
                 return res.redirect('/login');
         });
 
