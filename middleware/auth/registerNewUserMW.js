@@ -1,5 +1,6 @@
 /*
 registers a new user into the db
+handles 'email already registered'
 redirects to /login
  */
 

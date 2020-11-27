@@ -1,5 +1,6 @@
 /*
-fetches a specific customer's data by :userid (req.params.userid) param
+fetches a specific customer's data by :userid (req.params.userid) param if it is not undefined
+if not, we get the data from the logged in user id
 data saved to res.locals.customer
  */
 

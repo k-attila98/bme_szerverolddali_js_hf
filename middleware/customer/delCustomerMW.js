@@ -1,5 +1,5 @@
 /*
-deletes customer with all of its orders based on data: res.locals.customer
+deletes customer based on data: res.locals.customer
 redirects to /customer/list
  */
 

@@ -1,5 +1,5 @@
 /*
-gets all of the customers from the db
+gets all of the customers except with the name 'admin' from the db
 save into res.locals.customers
  */
 

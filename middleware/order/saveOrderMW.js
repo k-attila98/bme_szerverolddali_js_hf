@@ -1,7 +1,7 @@
 /*
 saves an order to the db
 if there is an existing one update
-redirect to /order
+redirect to /my_orders so the cutomer can view its orders
 */
 
 const requireOption = require('../common/requireOption');

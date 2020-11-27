@@ -1,6 +1,6 @@
 /*
 checks the privilege level of the logged in user
-res.locals one get set by setPrivilegeMW
+res.locals get set by setPrivilegeMW
 meant to counter attack from burpsuite (or any other cookie editor)
  */
 

@@ -1,6 +1,8 @@
 /*
 delete a customer's order from db
 uses res.locals.order
+redirects to the customer's orders
+meant to be called only from the admin privilege level (bc of the redirect)
  */
 
 const requireOption = require('../common/requireOption');

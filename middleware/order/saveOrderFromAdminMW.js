@@ -1,7 +1,7 @@
 /*
-saves an order to the db
+saves an order to the db by the admin
 if there is an existing one update
-redirect to /order
+redirect to /customer/order/:userid
 */
 
 const requireOption = require('../common/requireOption');

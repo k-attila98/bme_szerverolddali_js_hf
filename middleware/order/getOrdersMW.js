@@ -1,6 +1,6 @@
 /*
 gets a customer's all orders
-based on :userid (req.params.userid) param
+based on :userid (req.params.userid) param or on logged in user id (req.session.userid)
  */
 
 const requireOption = require('../common/requireOption');
@@ -18,6 +18,7 @@ module.exports = function (objectrepository) {
                 }
 
                 res.locals.orders = orders;
+                console.log(res.locals.orders);
                 return next();
 
             });
@@ -35,7 +36,5 @@ module.exports = function (objectrepository) {
 
             });
         }
-
-
     };
 };

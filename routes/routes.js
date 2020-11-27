@@ -16,6 +16,7 @@ const saveCustomerMW = require('../middleware/customer/saveCustomerMW');
 
 //const delOrderMW = require('../middleware/order/delOrderFromAdminMW');
 const delOrderFromAdminMW = require('../middleware/order/delOrderFromAdminMW');
+const delOrdersOnUserDeleteMW = require('../middleware/order/delOrdersOnUserDeleteMW');
 const delOrderMW = require('../middleware/order/delOrderMW');
 const getOrderMW = require('../middleware/order/getOrderMW');
 const getOrdersMW = require('../middleware/order/getOrdersMW');
@@ -77,7 +78,6 @@ module.exports = function (app) {
     app.use('/my_order/:userid/:orderid/edit',
         authMW(objRepo),
         setPrivilegeMW(objRepo),
-        //checkPrivilegeMW(objRepo),
         getCustomerMW(objRepo),
         getOrderMW(objRepo),
         saveOrderMW(objRepo),
@@ -101,6 +101,7 @@ module.exports = function (app) {
         authMW(objRepo),
         setPrivilegeMW(objRepo),
         checkPrivilegeMW(objRepo),
+        delOrdersOnUserDeleteMW(objRepo),
         getCustomerMW(objRepo),
         delCustomerMW(objRepo));
 

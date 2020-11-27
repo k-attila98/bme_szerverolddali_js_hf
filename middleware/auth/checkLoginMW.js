@@ -1,6 +1,6 @@
 /*
 if password and username is correct, set a valid session (req.session)
-if not correct, redirect to /login, set wrong pass param
+if not correct, set wrong pass param, stays on /login
  */
 
 const requireOption = require('../common/requireOption');

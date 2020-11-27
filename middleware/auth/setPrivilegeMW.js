@@ -1,5 +1,7 @@
 /*
 sets the privilege level of the logged in user from db
+meant to counter burpsuite
+menuStrip requires it
 0: user mode
 1: admin mode
  */

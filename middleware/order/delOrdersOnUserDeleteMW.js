@@ -1,8 +1,9 @@
 /*
-fetches order from db
-based on :orderid (req.params.orderid) param
-saves to res.locals.order
+delete a customer's orders from db, if we delete the customer
+uses req.params.userid to serach for the orderer in the db
+redirects calls next, because delCustomer redirects to /customer/list
  */
+
 const requireOption = require('../common/requireOption');
 
 module.exports = function (objectrepository) {
@@ -10,14 +11,14 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-        OrderModel.findOne({ _id: req.params.orderid }, (err, order) => {
-            if(err || !order)
+        OrderModel.remove({ _orderer: req.params.userid}, err => {
+            if(err)
             {
                 return next(err);
             }
 
-            res.locals.order = order;
             return next();
         });
+
     };
 };
