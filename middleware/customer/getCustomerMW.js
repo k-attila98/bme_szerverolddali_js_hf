@@ -12,15 +12,15 @@ module.exports = function (objectrepository) {
 
         if(typeof req.params.userid !== 'undefined')
         {
-            CustomerModel.findOne({ _id: req.params.userid }, (err, customer) => {
-                    if(err || !customer) {
-                        return  next(err);
-                    }
+                CustomerModel.findOne({ _id: req.params.userid }, (err, customer) => {
+                        if(err || !customer) {
+                            return  next(err);
+                        }
 
-                    res.locals.customer = customer;
-                    return next();
-                }
-            );
+                        res.locals.customer = customer;
+                        return next();
+                    }
+                );
         }
         else
         {
